@@ -137,15 +137,13 @@
   .btn svg{width:15px;height:15px;}
   /* smoked glass rather than flat ink: it still reads white-on-dark at a glance */
   .btn-primary{background:#101319;color:#FFFFFF;
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
     border-color:rgba(255,255,255,0.10);
     box-shadow:0 1px 2px rgba(20,20,45,0.26),0 14px 32px rgba(20,20,50,0.28);}
   .btn-primary:hover{transform:translateY(-1px);box-shadow:0 2px 4px rgba(20,20,45,0.24),0 14px 34px rgba(38,26,80,0.24);}
   /* clear glass, but opaque enough that the label never fights the backdrop */
   /* a white button on a white page needs an EDGE, not more white: the ink-tinted
      rim and a real drop shadow are what stop it washing out. */
-  .btn-ghost{background:rgba(255,255,255,0.96);color:var(--ink);border-color:rgba(20,22,30,0.18);
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  .btn-ghost{background:#FFFFFF;color:var(--ink);border-color:rgba(20,22,30,0.18);
     box-shadow:0 1px 2px rgba(30,24,60,0.10),0 14px 32px rgba(52,42,110,0.20);}
   .btn-ghost:hover{transform:translateY(-1px);border-color:rgba(20,22,30,0.30);}
   .btn[aria-disabled="true"]{cursor:not-allowed;}
@@ -168,7 +166,7 @@
   @keyframes d1{50%{transform:translate(6%,5%) scale(1.08);}}
   @keyframes d2{50%{transform:translate(-5%,7%) scale(1.1);}}
   @keyframes d3{50%{transform:translate(4%,-6%) scale(.94);}}
-  .hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
+  .hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;}   /* above the showcase glow */
   .gem-wrap{display:flex;justify-content:center;margin-bottom:24px;}
   .wordmark{font-weight:600;letter-spacing:0.18em;font-size:clamp(1rem,2vw,1.28rem);color:var(--ink-soft);margin-bottom:18px;}
   /* the mark lives behind the page: fixed, brighter, and blurred by every glass card */
@@ -238,7 +236,7 @@
   .windots i{width:7px;height:7px;border-radius:50%;background:rgba(20,22,30,0.16);cursor:pointer;transition:background .3s,transform .3s;}
   .windots i.on{background:rgba(20,22,30,0.46);transform:scale(1.25);}
   .actclip{height:min(56.25vw,calc(100vh - 250px));aspect-ratio:16/9;width:auto;margin:0 auto;}
-  .showcase-glow{position:absolute;left:50%;top:-90px;transform:translateX(-50%);width:132%;height:118%;z-index:-1;pointer-events:none;filter:blur(20px);
+  .showcase-glow{position:absolute;left:50%;top:-24px;transform:translateX(-50%);width:132%;height:112%;z-index:-1;pointer-events:none;filter:blur(20px);
     background:radial-gradient(ellipse 42% 38% at 50% 0%, rgba(255,255,255,0.95), rgba(255,255,255,0) 60%), radial-gradient(ellipse 58% 54% at 50% 20%, rgba(178,208,255,0.5), rgba(202,180,246,0.3) 42%, rgba(255,255,255,0) 72%);}
   .liquid{background:rgba(255,255,255,0.34);
     backdrop-filter:blur(18px) saturate(1.7) brightness(1.04);-webkit-backdrop-filter:blur(18px) saturate(1.7) brightness(1.04);
