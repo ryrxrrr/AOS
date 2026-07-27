@@ -619,7 +619,8 @@
     </div>
     <div class="chat-input"><span>Message the room&#8230;</span><div class="send"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></div></div>
   </div>
-  <div class="debias-band"><div class="debias-cap" id="debiasCap"><p class="cap long">Every lab&#8217;s model has its own agenda. <b>Models from different brands tear each other&#8217;s answers apart, and the bias is gone.</b></p></div>
+  <div class="debias-band"><div class="debias-cap" id="debiasCap"><p class="cap">Every lab&#8217;s model <b>has its own agenda.</b></p></div>
+  <div class="debias-cap" id="tearCap"><p class="cap">Different brands tear each other&#8217;s answers apart. <b>The bias is gone.</b></p></div>
   <div class="debias-cap" id="fuseCap"><p class="cap"><b class="cap-iris">What survives the fight is the real thing.</b></p></div></div>
 </div></div></section>
 
@@ -780,8 +781,8 @@
   <div class="chain-caps"><div class="inner">
   <p class="cap ccap" data-c="1">The same workspace, <b>rebuilt in full.</b></p>
   <p class="cap ccap" data-c="2">An agent asks for <b>everything.</b></p>
-  <p class="cap ccap long" data-c="3">Put it first in the chain. <b>Hand your sensitive data to a local model and let it make things up.</b></p>
-  <p class="cap ccap long" data-c="4">ID numbers, keys, client names &#8212; <b>all swapped for fakes before anything goes out.</b></p>
+  <p class="cap ccap" data-c="3">Hand your sensitive data to a local model &#8212; <b>and let it make things up.</b></p>
+  <p class="cap ccap" data-c="4">ID numbers, keys, client names &#8212; <b>all swapped for fakes.</b></p>
   <p class="cap ccap" data-c="5">Home fills the real ones back in. <b>It just works.</b></p>
   <p class="cap ccap" data-c="6">Privacy, locked down.<br><b class="cap-iris">Security &#8212; yours to command.</b></p>
   </div></div>
@@ -844,11 +845,11 @@
   </div>
 
   <div class="flow-cap" id="flowCap">
-    <p class="cap fcap long" data-f="1">Your files were never uploaded. The search over your knowledge base runs on your computer. <b>Only the answer goes out.</b></p>
-    <p class="cap fcap long" data-f="2"><span class="cap-lock" id="capLock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path class="clk" d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>You lock memory leaks <b>down hard.</b></p>
-    <p class="cap fcap long" data-f="3">What you get is a .pptx or .docx you can double-click &#8212; <b>not a wall of text to reformat yourself.</b></p>
-    <p class="cap fcap long" data-f="4">Which AI, and what the model remembers? A few drags.<br><b class="cap-iris">You pick the model for every step.</b></p>
-    <p class="cap fcap long" data-f="5">A local model <b>drops in whenever you want.</b></p>
+    <p class="cap fcap" data-f="1">Your files were never uploaded. <b>Only the answer goes out.</b></p>
+    <p class="cap fcap" data-f="2"><span class="cap-lock" id="capLock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path class="clk" d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>You lock memory leaks <b>down hard.</b></p>
+    <p class="cap fcap" data-f="3">A .pptx or .docx you can double-click. <b>Not a wall of text.</b></p>
+    <p class="cap fcap" data-f="4">Which AI? A few drags.<br><b class="cap-iris">You pick the model for every step.</b></p>
+    <p class="cap fcap" data-f="5">A local model <b>drops in whenever you want.</b></p>
     <p class="cap fcap" data-f="6">Frame them together.<br><b class="cap-iris">One discussion room.</b></p>
   </div>
 </div></div></section>
@@ -886,7 +887,7 @@
 
   <div class="flow-cap" id="runCap">
     <p class="cap fcap" data-r="1">Parallel paths? <b>Multiple debate rooms?</b></p>
-    <p class="cap fcap long" data-r="2">Nested loops? <b>Protocols between capability cards?</b></p>
+    <p class="cap fcap" data-r="2">Nested loops? <b>Protocols between cards?</b></p>
     <p class="cap fcap" data-r="3">Draw a box, drag a wire.<br><b class="cap-iris">That&#8217;s it.</b></p>
   </div>
 </div></div></section>
@@ -915,10 +916,10 @@
   </div>
 
   <div class="flow-cap" id="clawCap">
-    <p class="cap fcap long" data-k="1">The big model gives the orders, local AI does the work, <b>and the bill comes down.</b></p>
-    <p class="cap fcap long" data-k="2">The expensive one <b>only splits up the task and makes the call.</b></p>
-    <p class="cap fcap long" data-k="3">The legwork goes to <b>a free model on your own computer.</b></p>
-    <p class="cap fcap long" data-k="4">Or a cheap rented GPU running an open model,<br><b class="cap-iris">still a fraction of the cost.</b></p>
+    <p class="cap fcap" data-k="1">The big model gives the orders. <b>Local AI does the work.</b></p>
+    <p class="cap fcap" data-k="2">The expensive one <b>only splits up the task.</b></p>
+    <p class="cap fcap" data-k="3">The legwork goes to <b>a free model on your own computer.</b></p>
+    <p class="cap fcap" data-k="4">Or a cheap rented GPU.<br><b class="cap-iris">Still a fraction of the cost.</b></p>
   </div>
 </div></div></section>
 
@@ -962,7 +963,7 @@
   var localWrap=document.getElementById('localWrap'),localTag=document.getElementById('localTag');
   var maHl=document.getElementById('maHl'),pathTab1=document.getElementById('pathTab1');
   var cAICard=document.getElementById('cAICard'),cDiscCard=document.getElementById('cDiscCard'),finale=document.getElementById('finale');
-  var fuseCap=document.getElementById('fuseCap');
+  var fuseCap=document.getElementById('fuseCap'),tearCap=document.getElementById('tearCap');
   // The camera plan is measured ONCE (and on resize) with every card forced open, so the
   // scroll handler never reads layout &#8212; it only writes. That is what keeps the pan smooth.
   var plan=null;
@@ -1166,8 +1167,9 @@
     }
     var p1=prog(debate);
     chatMsgs.forEach(function(m,idx){var s=0.05+idx*0.085,r=sub(p1,s,s+0.09);m.style.opacity=r.toFixed(3);m.style.transform='translateY('+((1-r)*16).toFixed(1)+'px)';});
-    debiasCap.style.opacity=(sub(p1,0.60,0.74)*(1-sub(p1,0.80,0.86))).toFixed(3);
-    if(fuseCap)fuseCap.style.opacity=sub(p1,0.84,0.94).toFixed(3);
+    debiasCap.style.opacity=(sub(p1,0.56,0.66)*(1-sub(p1,0.70,0.75))).toFixed(3);   // one line per beat now
+    if(tearCap)tearCap.style.opacity=(sub(p1,0.74,0.82)*(1-sub(p1,0.86,0.90))).toFixed(3);
+    if(fuseCap)fuseCap.style.opacity=sub(p1,0.90,0.96).toFixed(3);
     // ===== ONE CHAIN: zoom in &#8594; rebuild detail &#8594; ask &#8594; local host &#8594; seal &#8594; cloud &#8594; local host executes =====
     var pc=Math.min(1,prog(chain)/0.92);   // the last 8% is a deliberate pause on the closing frame
 
