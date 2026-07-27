@@ -586,13 +586,12 @@
   <div class="hero-light" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
   <div class="wrap hero-inner">
     <p class="eyebrow" style="margin-bottom:18px;">AI Operating System</p>
-    <h1>You shouldn't have to<br>watch it think.</h1>
-    <p class="lead" style="margin-top:20px;">An operating system for AI work. You compose the task in glass cards; underneath, a private brain does the thinking &#8212; and never lets your secrets leave the machine.</p>
+    <h1>Your AI.<br>You decide.</h1>
+    <p class="lead" style="margin-top:20px;">Memory, loops, model control &#8212; all of it visual. Local and cloud, combined.</p>
     <div class="hero-actions">
       <a href="#get" class="btn btn-primary dl" aria-disabled="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.7 12.9c0-2 1.6-3 1.7-3-1-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.4-.4 6 1 8 .6 1 1.4 2.1 2.4 2 .9 0 1.3-.6 2.4-.6s1.4.6 2.4.6c1 0 1.6-1 2.2-2 .7-1.1 1-2.2 1-2.3-.1 0-1.9-.8-1.9-2.8zM14.8 6.3c.5-.7.9-1.6.8-2.5-.8 0-1.7.5-2.3 1.2-.5.6-.9 1.5-.8 2.4.9.1 1.7-.4 2.3-1.1z"/></svg>Download for macOS<span class="soon">soon</span></a>
       <a href="#get" class="btn btn-ghost dl" aria-disabled="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.4L11 4.3v7.5H3zM12 4.1L21 3v8.8h-9zM3 12.8h8v7.5L3 19.2zM12 12.8h9V21l-9-1.3z"/></svg>Download for Windows<span class="soon">soon</span></a>
     </div>
-    <p class="subnote">Apple silicon &amp; Windows &#183; Free while in beta &#183; No account</p>
   </div>
 
   <!-- faithful product showcase -->
@@ -910,10 +909,6 @@
     <div class="claw-guard" id="clawGuard">
       <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path class="cgk" d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none"/></svg>
       <span>private</span>
-    </div>
-    <div class="claw-brain" id="clawBrain">
-      <span class="cb-title">Your own brain</span>
-      <span class="cb-sub">local and cloud, in the order you choose</span>
     </div>
   </div>
 
@@ -1241,8 +1236,8 @@
       if(cDiscDetail&&plan&&plan.discFull){
         cDiscDetail.style.maxHeight=(244+unfold*(plan.discFull-244)).toFixed(0)+'px';
       }
-      if(cAICard)cAICard.style.transform='scale('+focus(beat(0.30,0.40)).toFixed(4)+')';
-      if(cDiscCard)cDiscCard.style.transform='scale('+focus(beat(0.34,0.48)).toFixed(4)+')';
+      if(cAICard)cAICard.style.transform='none';      // full-screen cards do not swell: it reads as a jump
+      if(cDiscCard)cDiscCard.style.transform='none';
       if(cAIDetail)cAIDetail.classList.toggle('on',pc>0.04);
       if(cDiscDetail)cDiscDetail.classList.toggle('on',pc>0.04);
       var grow=sub(pc,0.48,0.56),emerge=sub(pc,0.58,0.68),ex=sub(pc,0.83,0.895),lk=sub(pc,0.945,0.99);
@@ -1371,7 +1366,7 @@
       var gd=sub(pk,0.22,0.32);                                  // the guard closes after the first local model
       clawGuard.style.opacity=gd.toFixed(3);
       clawGuard.classList.toggle('open',gd<0.75);
-      clawBrain.style.opacity=sub(pk,0.84,0.94).toFixed(3);      // and the brain is yours
+      if(clawBrain)clawBrain.style.opacity=sub(pk,0.84,0.94).toFixed(3);
       var kAct=pk<0.30?1:pk<0.50?2:pk<0.70?3:4;
       clawCaps.forEach(function(c){c.style.opacity=(parseInt(c.dataset.k,10)===kAct&&pk>0.04)?'1':'0';});
     }
