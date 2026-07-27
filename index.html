@@ -132,18 +132,20 @@
     transition:transform .18s,box-shadow .25s,border-color .25s;white-space:nowrap;}
   .btn svg{width:15px;height:15px;}
   /* smoked glass rather than flat ink: it still reads white-on-dark at a glance */
-  .btn-primary{background:rgba(18,20,28,0.80);color:#FFFFFF;
+  .btn-primary{background:rgba(14,16,22,0.94);color:#FFFFFF;
     backdrop-filter:blur(20px) saturate(1.7);-webkit-backdrop-filter:blur(20px) saturate(1.7);
-    border-color:rgba(255,255,255,0.16);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.30),inset 0 -8px 18px rgba(0,0,0,0.22),
-      0 1px 2px rgba(20,20,45,0.2),0 10px 26px rgba(20,20,50,0.20);}
+    border-color:rgba(255,255,255,0.14);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.26),inset 0 -8px 18px rgba(0,0,0,0.28),
+      0 1px 2px rgba(20,20,45,0.24),0 12px 30px rgba(20,20,50,0.26);}
   .btn-primary:hover{transform:translateY(-1px);box-shadow:0 2px 4px rgba(20,20,45,0.24),0 14px 34px rgba(38,26,80,0.24);}
   /* clear glass, but opaque enough that the label never fights the backdrop */
-  .btn-ghost{background:rgba(255,255,255,0.66);color:var(--ink);border-color:rgba(255,255,255,0.9);
+  /* a white button on a white page needs an EDGE, not more white: the ink-tinted
+     rim and a real drop shadow are what stop it washing out. */
+  .btn-ghost{background:rgba(255,255,255,0.80);color:var(--ink);border-color:rgba(20,22,30,0.16);
     backdrop-filter:blur(20px) saturate(1.8);-webkit-backdrop-filter:blur(20px) saturate(1.8);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.95),inset 0 -8px 18px rgba(255,255,255,0.35),
-      0 1px 2px rgba(30,24,60,0.06),0 10px 26px rgba(52,42,110,0.13);}
-  .btn-ghost:hover{transform:translateY(-1px);border-color:rgba(20,22,30,0.2);}
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.95),
+      0 1px 2px rgba(30,24,60,0.10),0 12px 30px rgba(52,42,110,0.18);}
+  .btn-ghost:hover{transform:translateY(-1px);border-color:rgba(20,22,30,0.30);}
   .btn[aria-disabled="true"]{cursor:not-allowed;}
   .btn .soon{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;padding:2px 5px;border-radius:5px;background:rgba(255,255,255,0.26);color:rgba(255,255,255,0.92);}
   .btn-ghost .soon{background:rgba(20,22,30,0.08);color:var(--ink-soft);}
@@ -197,7 +199,28 @@
     border:1px solid rgba(255,255,255,0.62);
     box-shadow:inset 0 1px 1px rgba(255,255,255,0.8),0 2px 6px rgba(30,24,60,0.06),0 44px 96px rgba(52,42,110,0.17);}
   .clip iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none;}
-  .share-stage .scene,.wire-stage .scene{max-width:1120px;}
+  .win-stage .scene{max-width:1240px;}
+  .winscene{display:flex;align-items:center;gap:clamp(20px,3.4vw,52px);}
+  .wincaps{position:relative;flex:0 0 auto;width:min(31%,330px);min-height:6em;}
+  .wcap{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:left;
+    font-size:clamp(1.4rem,2.5vw,2.15rem);line-height:1.14;opacity:0;transition:opacity .4s;}
+  .winview{flex:1;min-width:0;overflow:hidden;border-radius:22px;}
+  .wintrack{display:flex;width:200%;will-change:transform;}
+  .winpane{position:relative;width:50%;flex:0 0 50%;}
+  .winpane .clip{border-radius:22px;}
+  .replay{position:absolute;right:14px;bottom:14px;z-index:4;display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--sans);font-size:0.78rem;font-weight:560;letter-spacing:-0.005em;color:var(--ink);
+    padding:8px 13px;border-radius:11px;cursor:pointer;
+    background:rgba(255,255,255,0.82);border:1px solid rgba(20,22,30,0.16);
+    backdrop-filter:blur(18px) saturate(1.7);-webkit-backdrop-filter:blur(18px) saturate(1.7);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.95),0 1px 2px rgba(30,24,60,0.10),0 10px 24px rgba(52,42,110,0.18);
+    opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .35s,transform .35s;}
+  .replay.on{opacity:1;transform:none;pointer-events:auto;}
+  .replay:hover{border-color:rgba(20,22,30,0.3);}
+  .replay svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .windots{position:absolute;left:0;right:0;bottom:clamp(10px,3vh,26px);display:flex;gap:7px;justify-content:center;}
+  .windots i{width:6px;height:6px;border-radius:50%;background:rgba(20,22,30,0.16);transition:background .3s,transform .3s;}
+  .windots i.on{background:rgba(20,22,30,0.46);transform:scale(1.25);}
   .actclip{height:min(56.25vw,calc(100vh - 250px));aspect-ratio:16/9;width:auto;margin:0 auto;}
   .showcase-glow{position:absolute;left:50%;top:-90px;transform:translateX(-50%);width:132%;height:118%;z-index:-1;pointer-events:none;filter:blur(20px);
     background:radial-gradient(ellipse 42% 38% at 50% 0%, rgba(255,255,255,0.95), rgba(255,255,255,0) 60%), radial-gradient(ellipse 58% 54% at 50% 20%, rgba(178,208,255,0.5), rgba(202,180,246,0.3) 42%, rgba(255,255,255,0) 72%);}
@@ -567,6 +590,10 @@
     .run-stage .fcap{text-align:center;}
     .lr-name{min-width:0;}
     .actclip{height:auto;width:100%;}            /* 56.25vw + the scene's own padding overflowed right */
+    .winscene{flex-direction:column;gap:14px;}
+    .wincaps{width:100%;min-height:4.6em;order:2;}
+    .wcap{text-align:center;}
+    .winview{width:100%;order:1;}
     .crystal-wrap{width:min(640px,100%);}
     .gcard,.liquid{backdrop-filter:blur(10px) saturate(1.4);-webkit-backdrop-filter:blur(10px) saturate(1.4);}
   }
@@ -920,15 +947,6 @@
   </div>
 </div></div></section>
 
-<!-- ===================== ACT 4b : WIRE IT ===================== -->
-<section class="act" id="sc-wire" style="height:760vh"><div class="stage wire-stage"><div class="scene">
-  <div class="clip actclip"><iframe id="wireShot" title="Dragging a memory wire between cards" tabindex="-1" scrolling="no" aria-hidden="true"></iframe></div>
-  <div class="flow-cap" id="wireCap">
-    <p class="cap fcap" data-w="1">Even memory <b>is just another wire.</b></p>
-    <p class="cap fcap" data-w="2">Drag it <b>where it belongs.</b></p>
-    <p class="cap fcap" data-w="3">Then the whole board<br><b class="cap-iris">runs at once.</b></p>
-  </div>
-</div></div></section>
 
 <!-- ===================== ACT 5 : OPENCLAW - ASSEMBLE YOUR OWN BRAIN ===================== -->
 <section class="act" id="sc-claw" style="height:560vh"><div class="stage claw-stage"><div class="scene">
@@ -957,15 +975,25 @@
   </div>
 </div></div></section>
 
-<!-- ===================== ACT 6 : SHARE ===================== -->
-<section class="act" id="sc-share" style="height:620vh"><div class="stage share-stage"><div class="scene">
-  <div class="clip actclip"><iframe id="shareShot" title="Publishing an AI chain from your own machine" tabindex="-1" scrolling="no" aria-hidden="true"></iframe></div>
-  <div class="flow-cap" id="shareCap">
-    <p class="cap fcap" data-s="1">One click to share. <b>No signup.</b></p>
-    <p class="cap fcap" data-s="2">The link is live. <b>Your computer is the server.</b></p>
-    <p class="cap fcap" data-s="3">This AI flow runs <b>on any device.</b></p>
-    <p class="cap fcap" data-s="4">Like someone&#8217;s idea?<br><b class="cap-iris">Copy the chain, swap in your own models.</b></p>
+<!-- ===================== ACT 6 : TWO WINDOWS ===================== -->
+<section class="act" id="sc-windows" style="height:300vh"><div class="stage win-stage"><div class="scene winscene">
+  <div class="wincaps">
+    <p class="cap wcap" data-v="1">Even memory is just another wire.<br><b>Drag it where it belongs.</b></p>
+    <p class="cap wcap" data-v="2">One click to share. <b>No signup.</b><br><b class="cap-iris">Any device.</b></p>
   </div>
+  <div class="winview">
+    <div class="wintrack" id="winTrack">
+      <div class="winpane">
+        <div class="clip actclip"><iframe id="wireShot" title="Dragging a memory wire between cards" tabindex="-1" scrolling="no" aria-hidden="true"></iframe></div>
+        <button type="button" class="replay" id="replay0"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></svg>Replay</button>
+      </div>
+      <div class="winpane">
+        <div class="clip actclip"><iframe id="shareShot" title="Publishing an AI chain from your own machine" tabindex="-1" scrolling="no" aria-hidden="true"></iframe></div>
+        <button type="button" class="replay" id="replay1"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></svg>Replay</button>
+      </div>
+    </div>
+  </div>
+  <div class="windots" aria-hidden="true"><i class="on"></i><i></i></div>
 </div></div></section>
 
 <!-- ===================== CLOSING ===================== -->
@@ -1036,10 +1064,44 @@
     el.style.transform='scale('+((0.92+0.08*v)*(foc||1)).toFixed(4)+')';
     el.classList.toggle('open',v>0.02);}
   var showcase=document.querySelector('.showcase'),crystalImg=document.querySelector('.crystal'),scBack=document.getElementById('scBack');
+  /* two windows at the end of the story: each plays itself once, then offers a replay */
+  var winSec=document.getElementById('sc-windows'),winTrack=document.getElementById('winTrack'),
+      winCaps=document.querySelectorAll('.wcap'),winDots=document.querySelectorAll('.windots i'),
+      winPlayers=null,winVis=false;
   var shareShot=document.getElementById('shareShot');
   if(shareShot&&window.SHARE_BUILD)shareShot.srcdoc=window.SHARE_BUILD;
   var wireShot=document.getElementById('wireShot');
   if(wireShot&&window.WIRE_BUILD)wireShot.srcdoc=window.WIRE_BUILD;
+  if(winSec&&wireShot&&shareShot){
+    winPlayers=[{f:wireShot,A:0.20,B:9.90,t:0,run:false,done:false,btn:document.getElementById('replay0')},
+                {f:shareShot,A:0.60,B:7.60,t:0,run:false,done:false,btn:document.getElementById('replay1')}];
+    winPlayers.forEach(function(pl){
+      if(!pl.btn)return;
+      pl.btn.addEventListener('click',function(){pl.t=0;pl.run=true;pl.done=false;pl.btn.classList.remove('on');});
+    });
+    var winLast=0;
+    (function winFrame(now){
+      var dt=winLast?Math.min(0.05,(now-winLast)/1000):0;winLast=now;
+      if(winVis){
+        winPlayers.forEach(function(pl){
+          if(!pl.run)return;
+          var span=pl.B-pl.A;
+          pl.t+=dt;
+          var w=pl.f.contentWindow;
+          if(w&&w.__actReady)w.__seek(pl.A+Math.min(pl.t,span));
+          if(pl.t>=span){pl.run=false;pl.done=true;if(pl.btn)pl.btn.classList.add('on');}
+        });
+      }
+      requestAnimationFrame(winFrame);
+    })(0);
+  }
+  function winActivate(i){                       // the visible pane plays; the other one waits
+    if(!winPlayers)return;
+    winPlayers.forEach(function(pl,k){
+      if(k===i){if(!pl.done&&!pl.run)pl.run=true;}
+      else if(pl.run)pl.run=false;
+    });
+  }
   var heroShot=document.getElementById('heroShot');
   if(heroShot&&window.SHOT_BUILD){                       /* the clip is a whole document in a string */
     heroShot.srcdoc=window.SHOT_BUILD;
@@ -1063,8 +1125,6 @@
       lPaths=document.getElementById('lPaths'),lgRun=document.getElementById('lgRun'),
       drag2=document.getElementById('dragger2'),
       runCaps=document.querySelectorAll('#runCap .fcap');
-  var share=document.getElementById('sc-share'),shareCaps=document.querySelectorAll('#shareCap .fcap');
-  var wire=document.getElementById('sc-wire'),wireCaps=document.querySelectorAll('#wireCap .fcap');
   var claw=document.getElementById('sc-claw'),clawSlots=[1,2,3,4].map(function(i){return document.getElementById('ck'+i);}),
       clawGuard=document.getElementById('clawGuard'),clawBrain=document.getElementById('clawBrain'),
       clawCaps=document.querySelectorAll('#clawCap .fcap');
@@ -1412,21 +1472,18 @@
       var kAct=pk<0.30?1:pk<0.50?2:pk<0.70?3:4;
       clawCaps.forEach(function(c){c.style.opacity=(parseInt(c.dataset.k,10)===kAct&&pk>0.04)?'1':'0';});
     }
-    // ===== Act 4b: a wire is dragged by hand, then the board finishes itself =====
-    if(wire&&wireShot){
-      var pw=Math.min(1,prog(wire)/0.94);
-      var ww=wireShot.contentWindow;
-      if(ww&&ww.__actReady)ww.__seek(0.20+pw*9.70);
-      var wAct=pw<0.36?1:pw<0.63?2:3;
-      wireCaps.forEach(function(c){c.style.opacity=(parseInt(c.dataset.w,10)===wAct&&pw>0.03)?'1':'0';});
-    }
-    // ===== Act 6: publish it, and the same chain answers on a phone =====
-    if(share&&shareShot){
-      var ps=Math.min(1,prog(share)/0.94);              // the last 6% holds on the shared session
-      var sw=shareShot.contentWindow;
-      if(sw&&sw.__actReady)sw.__seek(0.60+ps*7.00);     // scroll is the transport: no loop, no idle work
-      var sAct=ps<0.24?1:ps<0.49?2:ps<0.69?3:4;
-      shareCaps.forEach(function(c){c.style.opacity=(parseInt(c.dataset.s,10)===sAct&&ps>0.03)?'1':'0';});
+    // ===== Act 6: two windows, slid between rather than cross-faded =====
+    if(winSec&&winTrack){
+      var wr=winSec.getBoundingClientRect();
+      winVis=(wr.top<window.innerHeight&&wr.bottom>0);   // the scroll pass already knows: no observer needed
+      var pv=Math.min(1,prog(winSec)/0.94);
+      var slide=clamp((pv-0.30)/0.34,0,1);
+      var se=slide<0.5?2*slide*slide:1-Math.pow(-2*slide+2,2)/2;
+      winTrack.style.transform='translateX('+(-se*50).toFixed(3)+'%)';
+      var widx=se>0.5?1:0;
+      winCaps.forEach(function(c){c.style.opacity=(parseInt(c.dataset.v,10)===widx+1)?'1':'0';});
+      winDots.forEach(function(d,k){d.classList.toggle('on',k===widx);});
+      winActivate(widx);
     }
     // light source slides across the glass stack as you scroll
     if(showcase){var r=showcase.getBoundingClientRect(),vh=window.innerHeight;
