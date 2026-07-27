@@ -224,6 +224,7 @@
   .scene{position:relative;width:100%;max-width:1000px;padding:0 24px;text-align:center;}
   .cap{font-weight:300;letter-spacing:-0.02em;line-height:1.14;font-size:clamp(1.7rem,4.4vw,3rem);color:var(--ink);text-wrap:balance;}
   .cap b{font-weight:500;}
+  .cap.long{font-size:clamp(1.25rem,2.9vw,2.05rem);line-height:1.2;}
   .cap-iris{background:var(--iris);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;}
   .cap-sub{margin-top:14px;font-family:var(--mono);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);}
 
@@ -348,12 +349,12 @@
   .chain-caps{position:absolute;left:clamp(16px,5vw,96px);top:50%;transform:translateY(-50%);
     width:min(32vw,340px);z-index:20;pointer-events:none;}
   .chain-caps .inner{position:relative;min-height:4.6em;}
-  .ccap{position:absolute;left:0;right:0;top:0;opacity:0;transition:opacity .45s;
+  .ccap{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);opacity:0;transition:opacity .45s;
     font-size:clamp(1.5rem,2.6vw,2.3rem);line-height:1.14;text-align:left;}
   @media(max-width:1000px){
     .chain-caps{left:0;right:0;top:auto;bottom:0;transform:none;width:auto;padding:22px 24px 4vh;
       background:linear-gradient(to top,rgba(234,236,241,0.98) 34%,rgba(234,236,241,0) 100%);}
-    .ccap{text-align:center;}
+    .ccap{text-align:center;top:0;transform:none;}
   }
 
   /* ACT 4 build */
@@ -618,8 +619,8 @@
     </div>
     <div class="chat-input"><span>Message the room&#8230;</span><div class="send"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></div></div>
   </div>
-  <div class="debias-band"><div class="debias-cap" id="debiasCap"><p class="cap">Three loud opinions. <b class="cap-iris">Eliminate the bias.</b></p></div>
-  <div class="debias-cap" id="fuseCap"><p class="cap">Your own GPU, plus rented muscle.<br><b class="cap-iris">A sharper argument, at a fraction of the tokens.</b></p></div></div>
+  <div class="debias-band"><div class="debias-cap" id="debiasCap"><p class="cap long">Every lab&#8217;s model has its own agenda. <b>Models from different brands tear each other&#8217;s answers apart, and the bias is gone.</b></p></div>
+  <div class="debias-cap" id="fuseCap"><p class="cap"><b class="cap-iris">What survives the fight is the real thing.</b></p></div></div>
 </div></div></section>
 
 <!-- ============ ACT 2+3 : ONE CHAIN (zoom in &#8594; rebuild &#8594; guarded execution) ============ -->
@@ -779,8 +780,8 @@
   <div class="chain-caps"><div class="inner">
   <p class="cap ccap" data-c="1">The same workspace, <b>rebuilt in full.</b></p>
   <p class="cap ccap" data-c="2">An agent asks for <b>everything.</b></p>
-  <p class="cap ccap" data-c="3">Your machine answers &#8212; <b>then hides it.</b></p>
-  <p class="cap ccap" data-c="4">The cloud reasons. <b>It never sees the numbers.</b></p>
+  <p class="cap ccap long" data-c="3">Put it first in the chain. <b>Hand your sensitive data to a local model and let it make things up.</b></p>
+  <p class="cap ccap long" data-c="4">ID numbers, keys, client names &#8212; <b>all swapped for fakes before anything goes out.</b></p>
   <p class="cap ccap" data-c="5">Home fills the real ones back in. <b>It just works.</b></p>
   <p class="cap ccap" data-c="6">Privacy, locked down.<br><b class="cap-iris">Security &#8212; yours to command.</b></p>
   </div></div>
@@ -843,11 +844,11 @@
   </div>
 
   <div class="flow-cap" id="flowCap">
-    <p class="cap fcap" data-f="1">Your files, one chain, one delivery. <b>Start simple.</b></p>
-    <p class="cap fcap" data-f="2"><span class="cap-lock" id="capLock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path class="clk" d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>Your privacy <b>above everything.</b></p>
-    <p class="cap fcap" data-f="3">Plug in an agent card. <b>Custom work, your way.</b></p>
-    <p class="cap fcap" data-f="4">Drag out another chain, then pick its brain.<br><b class="cap-iris">Your model, your choice.</b></p>
-    <p class="cap fcap" data-f="5">Every path can run <b>on your own device.</b></p>
+    <p class="cap fcap long" data-f="1">Your files were never uploaded. The search over your knowledge base runs on your computer. <b>Only the answer goes out.</b></p>
+    <p class="cap fcap long" data-f="2"><span class="cap-lock" id="capLock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path class="clk" d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>You lock memory leaks <b>down hard.</b></p>
+    <p class="cap fcap long" data-f="3">What you get is a .pptx or .docx you can double-click &#8212; <b>not a wall of text to reformat yourself.</b></p>
+    <p class="cap fcap long" data-f="4">Which AI, and what the model remembers? A few drags.<br><b class="cap-iris">You pick the model for every step.</b></p>
+    <p class="cap fcap long" data-f="5">A local model <b>drops in whenever you want.</b></p>
     <p class="cap fcap" data-f="6">Frame them together.<br><b class="cap-iris">One discussion room.</b></p>
   </div>
 </div></div></section>
@@ -884,9 +885,9 @@
   </div>
 
   <div class="flow-cap" id="runCap">
-    <p class="cap fcap" data-r="1">Every step is a card you can see. <b>Nothing hidden.</b></p>
-    <p class="cap fcap" data-r="2">Pull out a parallel frame, drop in paths. <b>By hand.</b></p>
-    <p class="cap fcap" data-r="3">Then press run.<br><b class="cap-iris">Watch it think, top to bottom.</b></p>
+    <p class="cap fcap" data-r="1">Parallel paths? <b>Multiple debate rooms?</b></p>
+    <p class="cap fcap long" data-r="2">Nested loops? <b>Protocols between capability cards?</b></p>
+    <p class="cap fcap" data-r="3">Draw a box, drag a wire.<br><b class="cap-iris">That&#8217;s it.</b></p>
   </div>
 </div></div></section>
 
@@ -914,10 +915,10 @@
   </div>
 
   <div class="flow-cap" id="clawCap">
-    <p class="cap fcap" data-k="1">OpenClaw takes any model. <b>Start with your own.</b></p>
-    <p class="cap fcap" data-k="2">Nothing private leaves the frame. <b>It stays yours.</b></p>
-    <p class="cap fcap" data-k="3">Add the cloud where it helps. <b>Slot it in.</b></p>
-    <p class="cap fcap" data-k="4">Stack them in any order.<br><b class="cap-iris">A brain you define yourself.</b></p>
+    <p class="cap fcap long" data-k="1">The big model gives the orders, local AI does the work, <b>and the bill comes down.</b></p>
+    <p class="cap fcap long" data-k="2">The expensive one <b>only splits up the task and makes the call.</b></p>
+    <p class="cap fcap long" data-k="3">The legwork goes to <b>a free model on your own computer.</b></p>
+    <p class="cap fcap long" data-k="4">Or a cheap rented GPU running an open model,<br><b class="cap-iris">still a fraction of the cost.</b></p>
   </div>
 </div></div></section>
 
